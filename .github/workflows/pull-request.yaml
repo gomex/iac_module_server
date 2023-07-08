@@ -3,6 +3,13 @@ name: Pull Request - Check terraform code
 on:
   pull_request:
 
+permissions: 
+  checks: write
+  contents: write
+  id-token: write
+  packages: write
+  pull-requests: write
+
 jobs:
   check-terraform:
     name: check terraform code
