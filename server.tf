@@ -15,13 +15,20 @@ data "aws_ami" "custom_ami" {
     values = ["Ubuntu"]
   }
 
-  owners = ["405151343467"] 
+  owners = ["405151343467"]
 }
 
 resource "aws_instance" "example" {
   ami           = data.aws_ami.custom_ami.id
   instance_type = var.instance_type
   key_name      = var.key_name
+  metadata_options {
+    http_tokens = "required"
+  }
+
+  root_block_device {
+    encrypted = true
+  }
 
   tags = {
     Name = "exemplo-ec2"
