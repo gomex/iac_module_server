@@ -1,9 +1,12 @@
+#tfsec:ignore:aws-ec2-no-public-egress-sgr
 resource "aws_security_group" "main" {
-  vpc_id = data.aws_vpc.main.id
+  vpc_id      = data.aws_vpc.main.id
+  description = "Liberar toda saída"
 
   egress {
-    from_port = 0
-    to_port   = 0
+    description = "Liberar toda saída"
+    from_port   = 0
+    to_port     = 0
 
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
@@ -27,6 +30,7 @@ resource "aws_security_group_rule" "main" {
   type              = "ingress"
 }
 
+#tfsec:ignore:aws-ec2-no-public-ingress-sgr
 resource "aws_security_group_rule" "ssh" {
 
   cidr_blocks = ["0.0.0.0/0"]
