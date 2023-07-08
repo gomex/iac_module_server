@@ -15,7 +15,7 @@ data "aws_ami" "custom_ami" {
     values = ["Ubuntu"]
   }
 
-  owners = ["405151343467"] 
+  owners = ["405151343467"]
 }
 
 resource "aws_instance" "example" {
