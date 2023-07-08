@@ -9,3 +9,10 @@ variable "key_name" {
   type        = string
   default     = "descomplicando_packer"
 }
+
+variable "sg_group_rule" {
+  description = "Security Group rule"
+  type        = map(any)
+  default = {
+  }
+}
