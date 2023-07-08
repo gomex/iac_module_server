@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1 # Substitua pela região da sua escolha
+  region = "us-east-1" # Substitua pela região da sua escolha
 }
 
 data "aws_ami" "custom_ami" {
